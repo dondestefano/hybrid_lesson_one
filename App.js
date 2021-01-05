@@ -4,10 +4,18 @@ import { StyleSheet, Text, View, TextInput, Image, Button } from 'react-native';
 
 const emoji = require("./assets/emoji.png")
 
+let textInput = "No value";
+
 function handleOnPress() {
   console.log("Button was pressed");
-  console.log("Another print");
+  console.log("In this course you'd like to: " + textInput);
 }
+
+const handleChangeText = (value) => {
+  textInput = value;
+}
+
+console.log("Starting");
 
 export default function App() {
   return (
@@ -22,7 +30,7 @@ export default function App() {
 
       <View style={styles.container, {width: "100%", padding: 8}}>
         <Text style={{...styles.titleText, ...styles.bold, width: 250}}>What would you like to get out of this course?</Text>
-        <TextInput style={{ padding: 8, height: 100, backgroundColor: "#F2F2F2", textAlignVertical: 'top'}} placeholder="Enter some text" multiline={true} />
+        <TextInput style={{ padding: 8, height: 100, backgroundColor: "#F2F2F2", textAlignVertical: 'top'}} placeholder="Enter some text" multiline={true} onChangeText={handleChangeText}/>
       </View>
 
       <View style={styles.container, {width: "100%", padding: 8}}>
@@ -30,8 +38,11 @@ export default function App() {
         <Image source={emoji} style={{ width: 100, height: 100 }}/>
       </View>
 
-      <Button title="Submit" color="#24305E">
-      </Button>
+      <Button 
+        title="Submit" 
+        color="#24305E" 
+        onPress={handleOnPress}
+      />
       
     </View>
   );
@@ -46,7 +57,7 @@ const styles = StyleSheet.create({
   topContainer: {
     backgroundColor: "#24305E",
     width: "100%",
-    height: 30,
+    height: 40,
     justifyContent: "flex-start"
   },
   headerContainer: {
