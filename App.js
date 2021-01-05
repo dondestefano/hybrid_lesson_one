@@ -1,6 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Image, Button } from 'react-native';
+
+const emoji = require("./assets/emoji.png")
+
+function handleOnPress() {
+  console.log("Button was pressed");
+  console.log("Another print");
+}
 
 export default function App() {
   return (
@@ -17,6 +24,14 @@ export default function App() {
         <Text style={{...styles.titleText, ...styles.bold, width: 250}}>What would you like to get out of this course?</Text>
         <TextInput style={{ padding: 8, height: 100, backgroundColor: "#F2F2F2", textAlignVertical: 'top'}} placeholder="Enter some text" multiline={true} />
       </View>
+
+      <View style={styles.container, {width: "100%", padding: 8}}>
+        <Text style={{...styles.titleText, ...styles.bold, width: 250, paddingBottom: 16}}>An emoji describing how you are feeling about this course:</Text>
+        <Image source={emoji} style={{ width: 100, height: 100 }}/>
+      </View>
+
+      <Button title="Submit" color="#24305E">
+      </Button>
       
     </View>
   );
@@ -58,5 +73,5 @@ const styles = StyleSheet.create({
   },
   bold: {
     fontWeight: "bold"
-  }
+  },
 });
