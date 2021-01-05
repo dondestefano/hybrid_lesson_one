@@ -5,7 +5,11 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
+      <View style={styles.topContainer}/>
       <View style={styles.headerContainer}>
+        <Text style={styles.headerText}>Hello World!</Text>
+        <Text style={styles.titleText}>First React Native App</Text>
+        <Text style={styles.blueColor}>This is a paragraph explaining what this app is all about. As you can see there are already many components including text, images and buttons.</Text>
 
       </View>
       
@@ -20,19 +24,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   topContainer: {
-
+    backgroundColor: "#24305E",
+    width: "100%",
+    height: 30,
+    justifyContent: "flex-start"
   },
   headerContainer: {
     backgroundColor: "#A8D1E7",
     width: "100%",
-    height: 70,
-    justifyContent: "flex-start"
+    paddingVertical: 16,
+    paddingHorizontal: 8,
   },
   headerText: {
     fontWeight: "bold",
-    fontSize: 20
+    fontSize: 25
   },
   titleText: {
-    fontWeight: "bold",
+    fontSize: 18,
   },
+  blueColor: {
+    color: "#24305E"
+  }
 });
